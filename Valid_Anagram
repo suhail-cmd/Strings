@@ -1,0 +1,43 @@
+#python
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        freq1 = {}
+        freq2  = {}
+        for i in s:
+            if i not in freq1:
+                freq1[i] = 1
+            else:
+                freq1[i] += 1 
+        for j in t:
+            if j not in freq2:
+                freq2[j] = 1
+            else:
+                freq2[j] += 1  
+        if freq1 == freq2:
+            return True
+        return False  
+#############
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return sorted(s)==sorted(t)
+#java
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if(s.length() != t.length()){
+            return false;
+        }
+        HashMap<Character,Integer> freq1 = new HashMap<>();
+        for(char c:s.toCharArray()){
+            freq1.put(c,freq1.getOrDefault(c,0)+1);
+        }
+        HashMap<Character, Integer> freq2 = new HashMap<>();
+        for(char c : t.toCharArray()){
+            freq2.put(c,freq2.getOrDefault(c,0)+1);
+        }
+        return freq1.equals(freq2);
+        
+    } 
+}
+        
+
+         
