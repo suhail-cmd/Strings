@@ -1,0 +1,35 @@
+#pyhton
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        if len(s) != len(goal):
+            return False
+        if goal in s+s:
+            return True
+        else:
+            return False    
+#java
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        if(s.length() != goal.length()){
+            return false;
+        }
+        String doubled = s + s;
+        return doubled.contains(goal);
+    }
+}
+############
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        if(s.length() != goal.length()){
+            return false;
+        }
+        for(int i = 0;i < s.length();i++){
+            String rotated_str = s.substring(i) + s.substring(0,i);
+            if(rotated_str.equals(goal)){
+                return true;
+            }
+        }
+        return false;
+    
+    }
+}
