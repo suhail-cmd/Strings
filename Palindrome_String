@@ -1,0 +1,14 @@
+#python
+class Solution:
+    # @param A : string
+    # @return an integer
+    def isPalindrome(self, A):
+        clean_char = ""
+        for ch in A:
+            if ch.isalnum():
+                clean_char += ch.lower()
+        if clean_char == clean_char[::-1]:
+            return 1
+        else:
+            return 0
+        
