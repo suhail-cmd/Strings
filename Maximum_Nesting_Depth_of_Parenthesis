@@ -1,0 +1,30 @@
+#python
+class Solution:
+    def maxDepth(self, s: str) -> int:
+        l = 0
+        res = 0
+        for ch in s:
+            if ch == '(':
+                l += 1
+            elif ch == ')':
+                l -= 1
+            res = max(res,l)
+        return res
+#java
+class Solution {
+    public int maxDepth(String s) {
+        int l = 0;
+        int res = 0;
+        for(char c : s.toCharArray()){
+            if(c =='('){
+                l++;
+                res = Math.max(res,l);
+            }
+            else if(c == ')'){
+                l--;
+            }
+        }
+        return res;
+        
+    }
+}
