@@ -1,0 +1,42 @@
+#python
+class Solution:
+    def beautySum(self, s: str) -> int:
+        n = len(s)
+        total = 0
+        for i in range(n):
+            freq = {}
+            for j in range(i,n):
+                if s[j] not in freq:
+                    freq[s[j]] = 1
+                else:
+                    freq[s[j]] += 1
+                values  = freq.values()
+                maxi = max(values)
+                mini = min(values)
+                total += (maxi - mini) 
+        return total
+#java
+class Solution {
+    public int beautySum(String s) {
+        int total = 0;
+        int n = s.length();
+        for(int i = 0;i < n;i++){
+            HashMap<Character,Integer> freq = new HashMap<>();
+            for(int j = i; j < n;j++){
+                char c = s.charAt(j);
+                freq.put(c,freq.getOrDefault(c,0)+1);
+                int maxi = Integer.MIN_VALUE;
+                int mini = Integer.MAX_VALUE;
+
+                for(int val:freq.values()){
+                    if(val > maxi)maxi = val;
+                    if(val < mini)mini = val;
+                }
+                total += (maxi - mini);
+            }
+            
+        }
+        return total;
+    }
+}
+        
