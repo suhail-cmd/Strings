@@ -1,0 +1,39 @@
+#python
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        roman = {'I':1,'V':5,'X':10,'L':50,'C':100,'D':500,'M':1000}
+        total = 0
+        for i in  range(len(s)-1):
+            if roman[s[i]] < roman[s[i + 1]]:
+                total -= roman[s[i]]
+            else:
+                total += roman[s[i]]
+        total += roman[s[-1]]
+        return total
+#java
+class Solution {
+    public int romanToInt(String s) {
+        int total = 0;
+        HashMap<Character,Integer> roman = new HashMap<>();
+        roman.put('I',1);
+        roman.put('V',5);
+        roman.put('X',10);
+        roman.put('L',50);
+        roman.put('C',100);
+        roman.put('D',500);
+        roman.put('M',1000);
+        for(int i = 0;i < s.length() - 1;i++){
+            if(roman.get(s.charAt(i)) < (roman.get(s.charAt(i  + 1)))){
+                total -= roman.get(s.charAt(i));
+            }else{
+                total += roman.get(s.charAt(i));
+            }
+
+        }
+
+        total += roman.get(s.charAt(s.length() - 1));
+        return total;
+
+        
+    }
+}
