@@ -1,0 +1,11 @@
+#python
+class Solution:
+	# @param A : string
+	# @return an integer
+	def lengthOfLastWord(self, A):
+        A = A.strip()
+        word = A.split()
+        if not word:
+            return 0
+        return len(word[-1])
+
