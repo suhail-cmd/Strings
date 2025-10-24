@@ -1,0 +1,19 @@
+#python
+class Solution:
+    def maximumFrequency(self, s):
+        # Your Code goes here
+        words = s.split()
+        freq = {}
+        for word in words:
+            if word not in freq:
+                freq[word] = 1
+            else:
+                freq[word] += 1
+        max_val = 0
+        max_freq = ""
+        for key,value in freq.items():
+            if value > max_val:
+                max_val = value
+                max_freq = key
+        return f"{max_freq} {max_val}"
+            
